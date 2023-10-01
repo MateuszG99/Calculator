@@ -1,0 +1,11 @@
+﻿@model Calculator.Models.Urodziny;
+@{
+    ViewData["Title"] = "Formularz Urodziny";
+}
+<p>Formularz urodziny</p>
+<form>
+    <input type="text" asp-for="Imie" />Imie
+    <input type="number" asp-for="Rok" />Rok urodzenia
+    <input type="sumbit" />
+</form>
+@ViewBag.powitanie
