@@ -25,28 +25,55 @@ namespace Calculator.Controllers
 
         public IActionResult About()
         {
-            ViewBag.Imie = "Mateusz";
+            ViewBag.Imie = "Jan";
             ViewBag.godzina = DateTime.Now.Hour;
-            ViewBag.powitanie = ViewBag.godzina < 17 ? "Dzień dobry" : "Dobry wieczór";
+            ViewBag.powitanie = ViewBag.godzina < 17 ? "Dzien dobry" : "Dobry Wieczor";
 
             Dane[] osoby =
-            {
-                new Dane {Name = "Mateusz", Surname = "Golonka"},
-                new Dane {Name = "Mateusz", Surname = "Nowak"},
-                new Dane {Name = "Mateusz", Surname = "Kowalski"},
+                {
+                    new Dane {Name = "Mateusz", Surname = "Golonka"},
+                    new Dane {Name = "Mateusz", Surname = "Kowalski"},
+                    new Dane {Name = "Mateusz", Surname = "Nowy"}
+                };
 
-            };
+
             return View(osoby);
         }
+
         public IActionResult Urodziny(Urodziny urodziny)
         {
             ViewBag.powitanie = $"Witaj {urodziny.Imie} masz {DateTime.Now.Year - urodziny.Rok} lat";
             return View();
         }
-        public IActionResult Kalkulator(Urodziny kalkulator)
-        {
-            ViewBag.powitanie = "Witaj w prostym kalkulatorze";
 
+        public IActionResult Kalkulator(Kalkulator calc, string Result)
+        {
+
+
+            float a = calc.Number1;
+            float b = calc.Number2;
+            float c = 0;
+
+            switch (Result)
+            {
+                case "Add":
+                    c = a + b;
+                    break;
+
+                case "Remove":
+                    c = a - b;
+                    break;
+
+                case "Multiply":
+                    c = a * b;
+                    break;
+
+                case "Divide":
+                    c = a / b;
+                    break;
+            }
+
+            ViewBag.Result = c;
             return View();
         }
 

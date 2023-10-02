@@ -1,8 +1,11 @@
-﻿namespace Calculator.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace Calculator.Models
 {
-    public class kalkulator
+    public class Kalkulator
     {
-        public int Liczba1 { get; set; }
-        public int Liczba2 { get; set; }
+        public float Number1 { get; set; }
+        public float Number2 { get; set; }
     }
 }
